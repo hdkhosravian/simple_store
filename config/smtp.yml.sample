@@ -1,0 +1,7 @@
+development:
+  address: localhost
+  port: 1025
+
+test:
+  address: localhost
+  port: 1025

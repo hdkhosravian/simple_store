@@ -1,0 +1,34 @@
+default: &default
+  pool: 50
+  template: 'template0'
+  adapter: 'postgresql'
+  username: postgres
+  host: 'postgres'
+  port: 5432
+  timeout: 5000
+  encoding: 'utf8'
+  min_messages: WARNING
+
+development:
+  <<: *default
+  database: eusc_development
+
+test:
+  <<: *default
+  database: eusc_test<%= ENV['TEST_ENV_NUMBER'] %>
+  encoding: unicode
+  pool: 5
+  username: runner
+  password: ""
+
+integration:
+  <<: *default
+  database: eusc_integration
+
+staging:
+  <<: *default
+  database: eusc_staging
+
+production:
+  <<: *default
+  database: eusc_production

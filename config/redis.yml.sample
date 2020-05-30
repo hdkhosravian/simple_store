@@ -1,0 +1,22 @@
+default: &default
+  :host: 'redis'
+  :port: 6379
+  :db: 1
+
+test:
+  <<: *default
+
+development:
+  <<: *default
+
+integration:
+  <<: *default
+  :db: 2
+
+staging:
+  <<: *default
+  :db: 3
+
+production:
+  <<: *default
+  :db: 4

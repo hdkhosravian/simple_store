@@ -1,0 +1,108 @@
+en:
+  hello: "Hello world"
+  api:
+    v1:
+      registration:
+        sign_up:
+          success: "your account create successfully, please check your email address."
+        resend_confirmation:
+          success: "confirmation email is sending to you."
+        confirmation:
+          success: "your account confirmed successfully. you can sign in right now"
+      session:
+        sign_in:
+          error: "the email address or password is not correct."
+        forgot_password:
+          success: "the email is sending to you."
+        reset_password:
+          invalid_reset_password_token: "invalid reset password token."
+          success: "your password changed. you can sign in right now."
+      item:
+        destroy:
+          success: "item destroyed successfully"
+        blank_params: "no attributes sent for creating contents"
+      bootcamps:
+        destroy:
+          success: "item successfully destroyed"
+      workbooks:
+        destroy:
+          success: "workbook successfully destroyed"
+        errors:
+          not_available: "The address is not available"
+      users:
+        change_password:
+          not_equal_new_passwords: "password and password confirmation don't match"
+          incorrect_password: "password is not valid"
+          success: "password was changed"
+        logout: "user loged out"
+      courses:
+        destroy:
+          success: "course destroy successfully"
+      lessons:
+        destroy:
+          success: "item successfully destroyed"
+      roles:
+        destroy:
+          success: "role destroy successfully"
+      videos:
+        update:
+          success: "video successfully updated"
+        create:
+          success: "video were successfully created"
+        destroy:
+          success: 'video successfully destroyed'
+        errors:
+          format: 'video format is wrong'
+      codes:
+        update:
+          success: "code successfully updated"
+        create:
+          success: "code were successfully created"
+        destroy:
+          success: "code successfully destroyed"
+      contents:
+        update:
+          success: "contents successfully updated"
+        create:
+          success: "contents were successfully created"
+        destroy:
+          success: "contents successfully destroyed"
+      options:
+        destroy:
+          success: "option successfully destroyed"
+      documents:
+        errors:
+          format: "wrong format for uploaded file"
+        update:
+          success: "document successfully updated"
+        create:
+          success: "document were successfully created"
+        destroy:
+          success: "document successfully destroyed"
+      quizzes:
+        update:
+          success: "quiz successfully updated"
+        create:
+          success: "quiz were successfully created"
+        destroy:
+          success: "quiz successfully destroyed"
+      questions:
+        update:
+          success: "question successfully updated"
+        create:
+          success: "question were successfully created"
+        destroy:
+          success: "question successfully destroyed"
+  messages:
+    http:
+      _200: "Ok"
+      _201: "Record created"
+      _400: "Bad request"
+      _401: "Access is unauthorized"
+      _403: "Access is forbidden"
+      _404: "Record not found"
+      _500: "Connection was lost"
+    authentication:
+      refresh_token: "refresh token is not correct."
+      equal_password: "password and password confirmation must be equal."
+      timeout: "Authentication timeout"
