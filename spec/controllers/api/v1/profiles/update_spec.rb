@@ -32,6 +32,7 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         expect(data['attributes']['first_name']).to eq profile[:first_name]
         expect(data['attributes']['last_name']).to eq profile[:last_name]
         expect(data['attributes']['phone_number']).to eq profile[:phone_number]
+        expect(data['attributes']['accessibility']).to eq profile[:accessibility]
         expect(avatar['file_name']).to include('test_file.jpeg')
 
         # Cleaning
@@ -65,6 +66,7 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         expect(data['attributes']['first_name']).to eq profile[:first_name]
         expect(data['attributes']['last_name']).to eq profile[:last_name]
         expect(data['attributes']['phone_number']).to eq profile[:phone_number]
+        expect(data['attributes']['accessibility']).to eq profile[:accessibility]
         expect(avatar['file_name']).to include('test_file.jpeg')
 
         # Cleaning

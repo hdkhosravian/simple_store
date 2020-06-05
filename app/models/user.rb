@@ -42,11 +42,10 @@ class User < ApplicationRecord
   # Relations
   has_many :auth_tokens, as: :tokenable, autosave: true
   has_one :profile, dependent: :destroy
-  has_many :workbooks, dependent: :destroy
 
   after_create :set_profile
 
-private
+  private
 
   def set_profile
     create_profile

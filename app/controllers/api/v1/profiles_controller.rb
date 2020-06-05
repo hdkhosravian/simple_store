@@ -27,7 +27,7 @@ module Api
 
       def item_params
         params.require(model.to_s.underscore.to_sym).permit(
-          :first_name, :last_name, :phone_number, :description
+          :first_name, :last_name, :phone_number, :description, :accessibility
         )
       end
 

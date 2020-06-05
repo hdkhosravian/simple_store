@@ -21,4 +21,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_one :avatar, as: :fileable, class_name: 'Attachment', dependent: :destroy
+
+  enum accessibility: [:personal, :shop]
 end

@@ -24,6 +24,7 @@ FactoryBot.define do
     last_name   { Faker::Name.last_name }
     description { Faker::Lorem.paragraph }
     phone_number { Faker::PhoneNumber.phone_number }
+    accessibility { Profile.accessibilities.keys.sample }
 
     user { |a| a.association(:user) }
     avatar { |a| a.association(:attachment) }
@@ -34,5 +35,6 @@ FactoryBot.define do
     last_name   { Faker::Name.last_name }
     description { Faker::Lorem.paragraph }
     phone_number { Faker::PhoneNumber.phone_number }
+    accessibility { Profile.accessibilities.keys.sample }
   end
 end
