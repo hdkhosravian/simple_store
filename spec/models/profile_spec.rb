@@ -6,9 +6,7 @@
 #
 #  id           :bigint           not null, primary key
 #  description  :text
-#  first_name   :string
-#  last_name    :string
-#  phone_number :string
+#  username   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint
@@ -20,6 +18,11 @@
 
 RSpec.describe Profile, type: :model do
   subject(:profile) { create(:profile) }
+
+  context 'validations' do
+    it { expect(profile).to validate_presence_of(:username) }
+    it { should validate_uniqueness_of(:username) }
+  end
 
   context 'relations' do
     it { expect(profile).to belong_to(:user) }

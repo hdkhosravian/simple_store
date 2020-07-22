@@ -8,6 +8,7 @@ class Attachment
     end
 
     def process
+      return unless @file.present?
       Attachment.create(fileable: @fileable, file: @file)
     end
   end

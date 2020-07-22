@@ -20,7 +20,7 @@
 FactoryBot.define do
   factory :attachment, class: Attachment do
     title { Faker::Lorem.sentence(word_count: 3) }
-    file { Rack::Test::UploadedFile.new(File.join(Rails.root, '/spec/fixtures/test_file.jpeg')) }
+    file { Rack::Test::UploadedFile.new(File.join(Rails.root, '/spec/fixtures/test.jpeg')) }
     fileable { nil }
   end
 end

@@ -2,13 +2,20 @@
 
 class Attachment
   class UpdateAttachmentService
-    def initialize(attachment, file)
+    def initialize(fileable, attachment, file)
       @attachment = attachment
       @file = file
+      @fileable = fileable
     end
 
     def process
-      @attachment.update(file: @file)
+      if @attachment.present?
+        @attachment.update(file: @file)
+      elsif @file.present?
+        Attachment::CreateAttachmentService.new(@fileable, @file).process
+      end
+
+      @fileable.reload
     end
   end
 end

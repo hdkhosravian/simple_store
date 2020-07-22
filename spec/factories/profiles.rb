@@ -6,9 +6,7 @@
 #
 #  id           :bigint           not null, primary key
 #  description  :text
-#  first_name   :string
-#  last_name    :string
-#  phone_number :string
+#  username   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint
@@ -20,21 +18,19 @@
 
 FactoryBot.define do
   factory :profile do
-    first_name  { Faker::Name.first_name }
-    last_name   { Faker::Name.last_name }
+    username  { Faker::Name.first_name }
     description { Faker::Lorem.paragraph }
-    phone_number { Faker::PhoneNumber.phone_number }
-    accessibility { Profile.accessibilities.keys.sample }
+    # accessibility { Profile.accessibilities.keys.sample }
 
     user { |a| a.association(:user) }
     avatar { |a| a.association(:attachment) }
   end
 
   factory :profile_params, class: Profile do
-    first_name  { Faker::Name.first_name }
-    last_name   { Faker::Name.last_name }
+    username  { Faker::Name.first_name }
     description { Faker::Lorem.paragraph }
-    phone_number { Faker::PhoneNumber.phone_number }
-    accessibility { Profile.accessibilities.keys.sample }
+    # accessibility { Profile.accessibilities.keys.sample }
+
+    avatar { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test.jpg')) }
   end
 end

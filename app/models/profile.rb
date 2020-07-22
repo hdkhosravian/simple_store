@@ -6,9 +6,7 @@
 #
 #  id           :bigint           not null, primary key
 #  description  :text
-#  first_name   :string
-#  last_name    :string
-#  phone_number :string
+#  username :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint
@@ -22,5 +20,7 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_one :avatar, as: :fileable, class_name: 'Attachment', dependent: :destroy
 
-  enum accessibility: [:personal, :shop]
+  validates :username, presence: true, uniqueness: true
+
+  # enum accessibility: [:personal, :shop]
 end

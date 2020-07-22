@@ -7,7 +7,7 @@ describe AttachmentUploader do
 
   before do
     AttachmentUploader.enable_processing = true
-    File.open(File.join(Rails.root, '/spec/fixtures/test_file.jpeg')) { |f| uploader.store!(f) }
+    File.open(File.join(Rails.root, '/spec/fixtures/test.jpeg')) { |f| uploader.store!(f) }
   end
 
   after do
@@ -22,6 +22,6 @@ describe AttachmentUploader do
 
   it 'has the correct name' do
     # Expects
-    expect(uploader.filename).to eql('test_file.jpeg')
+    expect(uploader.filename).to eql('test.jpeg')
   end
 end

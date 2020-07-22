@@ -3,8 +3,8 @@
 class SerializableProfile < JSONAPI::Serializable::Resource
   type 'profile'
 
-  attributes :first_name, :last_name, :phone_number, :description
+  attributes :username, :description
 
   belongs_to :user
-  belongs_to :avatar
+  has_one :avatar
 end

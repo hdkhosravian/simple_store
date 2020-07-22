@@ -10,7 +10,7 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         attributes = {
           profile: FactoryBot.attributes_for(
             :profile_params,
-            avatar: fixture_file_upload('test_file.jpeg', 'image/jpg'),
+            avatar: fixture_file_upload('test.jpg', 'image/jpg'),
           ),
         }
 
@@ -29,11 +29,9 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         expect(data['type']).to eq 'profile'
         expect(data['id']).to eq singed_in_user.profile.id.to_s
         expect(data['attributes']['description']).to eq profile[:description]
-        expect(data['attributes']['first_name']).to eq profile[:first_name]
-        expect(data['attributes']['last_name']).to eq profile[:last_name]
-        expect(data['attributes']['phone_number']).to eq profile[:phone_number]
-        expect(data['attributes']['accessibility']).to eq profile[:accessibility]
-        expect(avatar['file_name']).to include('test_file.jpeg')
+        expect(data['attributes']['username']).to eq profile[:username]
+        # expect(data['attributes']['accessibility']).to eq profile[:accessibility]
+        expect(avatar['file_name']).to include('test.jpg')
 
         # Cleaning
         singed_in_user.profile.avatar.file.remove!
@@ -63,11 +61,9 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         expect(data['type']).to eq 'profile'
         expect(data['id']).to eq singed_in_user.profile.id.to_s
         expect(data['attributes']['description']).to eq profile[:description]
-        expect(data['attributes']['first_name']).to eq profile[:first_name]
-        expect(data['attributes']['last_name']).to eq profile[:last_name]
-        expect(data['attributes']['phone_number']).to eq profile[:phone_number]
-        expect(data['attributes']['accessibility']).to eq profile[:accessibility]
-        expect(avatar['file_name']).to include('test_file.jpeg')
+        expect(data['attributes']['username']).to eq profile[:username]
+        # expect(data['attributes']['accessibility']).to eq profile[:accessibility]
+        expect(avatar['file_name']).to include('test.jpg')
 
         # Cleaning
         singed_in_user.profile.avatar.file.remove!
@@ -81,7 +77,7 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         attributes = {
           profile: FactoryBot.attributes_for(
             :profile_params,
-            avatar: fixture_file_upload('test_file.jpeg', 'image/jpg'),
+            avatar: fixture_file_upload('test.jpg', 'image/jpg'),
           ),
         }
 
@@ -105,7 +101,7 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
         attributes = {
           profile: FactoryBot.attributes_for(
             :profile_params,
-            avatar: fixture_file_upload('test_file.jpeg', 'image/jpg'),
+            avatar: fixture_file_upload('test.jpg', 'image/jpg'),
           ),
         }
 

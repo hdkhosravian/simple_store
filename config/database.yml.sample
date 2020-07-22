@@ -1,9 +1,10 @@
 default: &default
   pool: 50
   template: 'template0'
-  adapter: 'postgresql'
+  adapter: postgresql
   username: postgres
-  host: 'postgres'
+  password: postgres
+  host: 'localhost'
   port: 5432
   timeout: 5000
   encoding: 'utf8'
@@ -11,24 +12,12 @@ default: &default
 
 development:
   <<: *default
-  database: eusc_development
+  database: istory_development
 
 test:
   <<: *default
-  database: eusc_test<%= ENV['TEST_ENV_NUMBER'] %>
-  encoding: unicode
-  pool: 5
-  username: runner
-  password: ""
-
-integration:
-  <<: *default
-  database: eusc_integration
-
-staging:
-  <<: *default
-  database: eusc_staging
+  database: istory_test%>
 
 production:
   <<: *default
-  database: eusc_production
+  database: istory_production

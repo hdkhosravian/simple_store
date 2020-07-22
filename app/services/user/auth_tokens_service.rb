@@ -9,7 +9,7 @@ class User::AuthTokensService
   # Encode a hash in a json web token
   def self.encode(payload, ttl)
     payload[:iss] = ISSUER
-    payload[:iat] = Time.zone.now.to_i
+    payload[:iat] = Time.now.nsec.to_i
     payload[:exp] = ttl.to_i
     JWT.encode(payload, Rails.application.secrets.secret_key_base)
   end

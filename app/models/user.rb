@@ -34,6 +34,8 @@
 class User < ApplicationRecord
   include Auth
 
+  acts_as_voter
+
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
@@ -41,6 +43,8 @@ class User < ApplicationRecord
 
   # Relations
   has_many :auth_tokens, as: :tokenable, autosave: true
+  has_many :stories, autosave: true
+
   has_one :profile, dependent: :destroy
 
   after_create :set_profile

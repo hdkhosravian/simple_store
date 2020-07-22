@@ -7,14 +7,14 @@ test:
 integration:
   adapter: redis
   url: redis://redis:6379/2
-  channel_prefix: eusc_integration
+  channel_prefix: istory_integration
 
 staging:
   adapter: redis
   url: redis://redis:6379/3
-  channel_prefix: eusc_staging
+  channel_prefix: istory_staging
 
 production:
   adapter: redis
   url: redis://redis:6379/4
-  channel_prefix: eusc_production
+  channel_prefix: istory_production

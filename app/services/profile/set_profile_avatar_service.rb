@@ -9,7 +9,7 @@ class Profile
 
     def process
       if @profile.avatar
-        Attachment::UpdateAttachmentService.new(@profile.avatar, @file).process
+        Attachment::UpdateAttachmentService.new(@profile, @profile.avatar, @file).process
       else
         Attachment::CreateAttachmentService.new(@profile, @file).process
       end

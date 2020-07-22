@@ -36,6 +36,11 @@ FactoryBot.define do
     sequence(:email) { |n| "#{n}_#{Faker::Internet.email}" }
     password { '123456aA' }
     password_confirmation { '123456aA' }
+
+
+    after :create do |user|
+      create(:profile, user: user) if user.profile.present?
+    end
   end
 
   factory :password_confirmation_blank, parent: :user do |_f|

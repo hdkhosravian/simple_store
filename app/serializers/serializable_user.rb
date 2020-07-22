@@ -5,6 +5,8 @@ class SerializableUser < JSONAPI::Serializable::Resource
 
   attributes :email
 
+  has_one :profile
+
   belongs_to :last_token do
     data do
       @object.token
