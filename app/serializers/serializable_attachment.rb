@@ -4,8 +4,10 @@ class SerializableAttachment < JSONAPI::Serializable::Resource
   type do
     if @object.fileable_type == 'Profile'
       'avatar'
-    elsif @object.fileable_type == 'Story'
-      'story'
+    elsif @object.fileable_type == 'Product'
+      'product'
+    elsif @object.fileable_type == 'Variation'
+      'variation'
     end
   end
 

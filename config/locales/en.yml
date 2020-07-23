@@ -23,15 +23,27 @@ en:
           incorrect_password: "password is not valid"
           success: "password was changed"
         logout: "user loged out"
-      stories:
-        update:
-          success: "story successfully updated"
-        create:
-          success: "story were successfully created"
-        destroy:
-          success: 'story successfully destroyed'
+      attachments:
         errors:
-          format: 'story format is wrong'
+          format: 'attachment format is wrong'
+      products:
+        update:
+          success: "product successfully updated"
+        create:
+          success: "product were successfully created"
+        destroy:
+          success: 'product successfully destroyed'
+        errors:
+          format: 'product format is wrong'
+      variations:
+        update:
+          success: "variation successfully updated"
+        create:
+          success: "variation were successfully created"
+        destroy:
+          success: 'variation successfully destroyed'
+        errors:
+          format: 'variation format is wrong'
   messages:
     http:
       _200: "Ok"

@@ -14,9 +14,8 @@ Rails.application.routes.draw do
 
       resources :profiles, only: %i(show update)
       resources :attachments, only: %i(show)
-      resources :stories do
-        resource :comments
-        resource :likes, only: [:create, :destroy]
+      resources :products do
+        resources :variations
       end
     end
   end

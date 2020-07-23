@@ -29,7 +29,7 @@ class User::AuthService
     @current_user
   end
 
-  # destory user token
+  # deProduct user token
   def destroy_session!
     # prefer to use custom error for something like this and I18N
     raise AuthenticationError, I18n.t('messages.http._401') unless valid_to_proceed?

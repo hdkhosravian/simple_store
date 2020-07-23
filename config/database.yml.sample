@@ -12,12 +12,12 @@ default: &default
 
 development:
   <<: *default
-  database: istory_development
+  database: store_development
 
 test:
   <<: *default
-  database: istory_test%>
+  database: store_test%>
 
 production:
   <<: *default
-  database: istory_production
+  database: store_production
