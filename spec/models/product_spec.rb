@@ -11,6 +11,7 @@ RSpec.describe Product, type: :model do
 
   context 'relations' do
     it { expect(product).to belong_to(:user) }
+    it { expect(product).to have_many(:variations).dependent(:destroy) }
     it { expect(product).to have_one(:image).dependent(:destroy).class_name('Attachment') }
   end
 end

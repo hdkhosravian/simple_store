@@ -39,6 +39,8 @@ RSpec.describe User, type: :model do
   context 'associations' do
     it { expect(user).to have_many(:auth_tokens) }
     it { expect(user).to have_one(:profile).dependent(:destroy) }
+    it { expect(user).to have_many(:products).dependent(:destroy) }
+    it { expect(user).to have_many(:options).dependent(:destroy) }
   end
 
   describe 'methods' do

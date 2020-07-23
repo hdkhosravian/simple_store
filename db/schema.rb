@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_085935) do
+ActiveRecord::Schema.define(version: 2020_07_23_154222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2020_07_23_085935) do
     t.index ["refresh_token"], name: "index_auth_tokens_on_refresh_token", unique: true
     t.index ["token"], name: "index_auth_tokens_on_token", unique: true
     t.index ["tokenable_type", "tokenable_id"], name: "index_auth_tokens_on_tokenable_type_and_tokenable_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.integer "title"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_options_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -83,6 +92,15 @@ ActiveRecord::Schema.define(version: 2020_07_23_085935) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variation_options", force: :cascade do |t|
+    t.bigint "variation_id", null: false
+    t.bigint "option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_variation_options_on_option_id"
+    t.index ["variation_id"], name: "index_variation_options_on_variation_id"
+  end
+
   create_table "variations", force: :cascade do |t|
     t.string "price"
     t.integer "sku"
@@ -93,6 +111,9 @@ ActiveRecord::Schema.define(version: 2020_07_23_085935) do
     t.index ["product_id"], name: "index_variations_on_product_id"
   end
 
+  add_foreign_key "options", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "variation_options", "options"
+  add_foreign_key "variation_options", "variations"
   add_foreign_key "variations", "products"
 end

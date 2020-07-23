@@ -7,4 +7,5 @@ class SerializableProduct < JSONAPI::Serializable::Resource
 
   belongs_to :user
   has_one :image
+  has_many :options
 end

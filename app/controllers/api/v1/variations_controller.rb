@@ -73,7 +73,7 @@ module Api
       end
 
       def variation_params
-        params.require(:variation).permit(:price, :quantity, :sku, :image)
+        params.require(:variation).permit(:price, :quantity, :sku, :image, option_ids: [])
       end
 
       def page_params

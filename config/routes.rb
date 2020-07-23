@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :options
   devise_for :users
 
   namespace :api do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
       resources :profiles, only: %i(show update)
       resources :attachments, only: %i(show)
+      resources :options
       resources :products do
         resources :variations
       end

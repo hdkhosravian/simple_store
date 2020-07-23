@@ -41,6 +41,8 @@ class User < ApplicationRecord
 
   # Relations
   has_many :auth_tokens, as: :tokenable, autosave: true
+  has_many :products, dependent: :destroy
+  has_many :options, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   after_create :set_profile
